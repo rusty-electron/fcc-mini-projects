@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Quote Generator</title>
+	<link href="https://fonts.googleapis.com/css?family=Dosis|Indie+Flower" rel="stylesheet"> 
+</head>
+<body>
+	<style>
+		html{
+			font-family: 10px;
+		}
+
+		.container{
+			border: 2px solid #777696;
+			border-radius: .3rem;
+			margin: 8% auto;
+			width: 60%;
+			display: flex;
+		}
+
+		.quote-box{
+			flex: 1 1 auto;
+			padding: 1rem;
+			background-color: #777696;
+			color: white;
+		}
+
+		.button-box{
+			flex: 1 0 auto;
+			font-size: 3rem;
+			color: #777696;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.button{
+			margin-left: 1rem;
+			margin-right: 1rem;
+		}
+
+		.button:hover{
+			opacity: 0.8;
+		}
+		.quote-text{
+			text-align: center;
+			font-size: 2.5rem;
+			font-family: 'Dosis', sans-serif;
+		}
+
+		.quote-author{
+			text-align: right;
+			font-size: 1.5rem;
+			font-family: 'Indie Flower', cursive;
+		}
+	</style>
+	<div class="container">
+		<div class="quote-box">
+			<div class="quote-text">
+				<i class="fa fa-quote-left"></i>
+				<span class="quote"></span>
+			</div>
+			<div class="quote-author">
+				<span class="author"></span>
+			</div>
+		</div>
+
+		<div class="button-box">
+			<a class="button tweet"><i class="fa fa-twitter"></i></a>
+			<a class="button new-quote"><i class="fa fa-plus-square"></i></a>
+		</div>
+	</div>
+	<script src="https://use.fontawesome.com/1d9fa78431.js"></script>
+
+	<script
+			  src="https://code.jquery.com/jquery-2.2.4.min.js"
+			  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+			  crossorigin="anonymous"></script>
+
+	<script
+			  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+			  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+			  crossorigin="anonymous"></script>
+
+	<script>
+		const color = ['#16a085', '#27ae60', '#2c3e50', '#f39c12', '#e74c3c', '#9b59b6', '#FB6964', '#342224', "#472E32", "#BDBB99", "#77B1A9", "#73A857"];
+
+		$(document).ready(function(){
+			function getNewQuote(){
+				$.getJSON("http://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=?").done(update);
+			}
+			function update(response){
+				quote = response.quoteText;
+				author = response.quoteAuthor;
+
+				$('.quote').animate({
+					opacity: 0
+				},500, function(){
+					$(this).animate({
+						opacity: 1
+					},500);
+					$('.quote').text(quote);
+				})
+
+				$('.author').animate({
+					opacity: 0
+				},500, function(){
+					$(this).animate({
+						opacity: 1
+					},500);
+					if(author){
+						$('.author').text("- "+author);
+					}else{
+						$('.author').text("- Anonymous");
+					}
+				})
+
+				var index = Math.floor(Math.random()*100)%color.length;
+
+				$('.container').animate({
+					borderColor: color[index]
+				}, 500);
+
+				$('.quote-box').animate({
+					backgroundColor: color[index]
+				}, 500);
+
+				$('.button').animate({
+					color: color[index]
+				}, 500);
+			}
+			getNewQuote();
+
+			$('.new-quote').on('click',getNewQuote);
+
+			$('.tweet').on('click', function(){
+				window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(quote +' -- '+author));
+			})
+		})
+	</script>
+</body>
+</html>
