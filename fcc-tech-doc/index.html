@@ -9,38 +9,38 @@
 </head>
 <body>
     <div class="container">
-        <div class="sidebar">
-            <div id="head" class="list-link">
+        <nav class="sidebar" id="navbar">
+            <header id="head" class="list-link">
                 <a href="http://flask.pocoo.org/docs/1.0/">Flask Documentation</a>
-            </div>
+            </header>
 
-            <div class="list-link"><a href="#intro"> Introduction</a></div>
-            <div class="list-link"><a href="#install">Installation</a></div>
-            <div class="list-link"><a href="#quick">Quickstart</a></div>
-            <div class="list-link"><a href="#tut">Tutorial</a></div>
-            <div class="list-link"><a href="#templates">Templates</a></div>
-            <div class="list-link"><a href="#testing">Testing Flask Application</a></div>
-            <div class="list-link"><a href="#debug">Debugging Application Error</a></div>
-            <div class="list-link"><a href="#log">Logging</a></div>
-            <div class="list-link"><a href="#config">Configuration Handling</a></div>
-            <div class="list-link"><a href="#signals">Signals</a></div>
-            <div class="list-link"><a href="#plug">Pluggable Views</a></div>
-            <div class="list-link"><a href="#appcon">Application Context</a></div>
-            <div class="list-link"><a href="#reqcon">Request Context</a></div>
-            <div class="list-link"><a href="#ext">Extensions</a></div>
-            <div class="list-link"><a href="#cli">Command Line Interface</a></div>
-            <div class="list-link"><a href="#shell">Working with Shell</a></div>
-            <div class="list-link"><a href="#patterns">Design Patterns</a></div>
+            <div class="list-link"><a href="#Introduction">Introduction</a></div>
+            <div class="list-link"><a href="#Installation">Installation</a></div>
+            <div class="list-link"><a href="#Quickstart">Quickstart</a></div>
+            <div class="list-link"><a href="#Tutorial">Tutorial</a></div>
+            <div class="list-link"><a href="#Templates">Templates</a></div>
+            <div class="list-link"><a href="#Testing_Flask_Application">Testing Flask Application</a></div>
+            <div class="list-link"><a href="#Debugging_Application_Error">Debugging Application Error</a></div>
+            <div class="list-link"><a href="#Logging">Logging</a></div>
+            <div class="list-link"><a href="#Configuration_Handling">Configuration Handling</a></div>
+            <div class="list-link"><a href="#Signals">Signals</a></div>
+            <div class="list-link"><a href="#Pluggable_Views">Pluggable Views</a></div>
+            <div class="list-link"><a href="#Application_Context">Application Context</a></div>
+            <div class="list-link"><a href="#Request_Context">Request Context</a></div>
+            <div class="list-link"><a href="#Extensions">Extensions</a></div>
+            <div class="list-link"><a href="#Command_Line_Interface">Command Line Interface</a></div>
+            <div class="list-link"><a href="#Working_with_Shell">Working with Shell</a></div>
+            <div class="list-link"><a href="#Design_Patterns">Design Patterns</a></div>
 
-        </div>
-        <div class="main">
+        </nav>
+        <main class="main" id="main-doc">
             <div class="img">
                 <img src="logo-full.png" alt="flask-logo">
             </div>
-            <div class="para" id="intro">
-                <div class="title">
+            <section class="para main-section" id="Introduction">
+                <header class="title">
                     Introduction
-                </div>
+                </header>
                 <div class="text">
                     <p>Welcome to Flask’s documentation. Get started with Installation and then get an overview with the Quickstart. There is also a more detailed Tutorial that shows how to create a small but complete application with Flask. Common patterns are described in the Patterns for Flask section. The rest of the docs describe each component of Flask in detail, with a full reference in the API section.</p>
                     <br>
@@ -48,28 +48,52 @@
                     <br>
                     <p>By default, Flask does not include a database abstraction layer, form validation or anything else where different libraries already exist that can handle that. Instead, Flask supports extensions to add such functionality to your application as if it was implemented in Flask itself. Numerous extensions provide database integration, form validation, upload handling, various open authentication technologies, and more. Flask may be “micro”, but it’s ready for production use on a variety of needs.</p>
                     </div>                
-            </div>
+            </section>
 
-            <div class="para" id="install">
-                    <div class="title">
+            <section class="para main-section" id="Installation">
+                    <header class="title">
                         Installation
-                    </div>
+                    </header>
                     <div class="text">
                         <p>We recommend using the latest version of Python 3. Flask supports Python 3.4 and newer, Python 2.7, and PyPy.</p>
                             
+                        <ul>
+                            <li>Werkzeug implements WSGI, the standard Python interface between applications and servers.</li>
+                            <li>Jinja is a template language that renders the pages your application serves.</li>
+                            <li>MarkupSafe comes with Jinja. It escapes untrusted input when rendering templates to avoid injection attacks.</li>
+                            <li>ItsDangerous securely signs data to ensure its integrity. This is used to protect Flask’s session cookie.</li>
+                            <li>Click is a framework for writing command line applications. It provides the flask command and allows adding custom management commands.</li>
+                        </ul>
+
                         <br>
                         <p>Use a virtual environment to manage the dependencies for your project, both in development and in production.
                             What problem does a virtual environment solve? The more Python projects you have, the more likely it is that you need to work with different versions of Python libraries, or even Python itself. Newer versions of libraries for one project can break compatibility in another project.
                             Virtual environments are independent groups of Python libraries, one for each project. Packages installed for one project will not affect other projects or the operating system’s packages.</p> 
-                        </div>                
-                </div>
+                        </div>   
+                        
+                            <code>
+mkdir myproject
+cd myproject
+python3 -m venv venv
+                            </code>
+                        
+                </section>
 
-           <div class="para" id="quick">
-                <div class="title">
+           <section class="para main-section" id="Quickstart">
+                <header class="title">
                     Quickstart
-                </div>
+                </header>
                 <div class="text">
                     <p>Eager to get started? This page gives a good introduction to Flask. It assumes you already have Flask installed. If you do not, head over to the Installation section.</p>
+
+                    <code>
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+return 'Hello, World!'
+                    </code>
                     <br>
                     <p>First we imported the Flask class. An instance of this class will be our WSGI application.
                             Next we create an instance of this class. The first argument is the name of the application’s module or package. If you are using a single module (as in this example), you should use __name__ because depending on if it’s started as application or imported as module the name will be different ('__main__' versus the actual import name). This is needed so that Flask knows where to look for templates, static files, and so on. For more information have a look at the Flask documentation.
@@ -80,12 +104,12 @@
 
                             To run the application you can either use the flask command or python’s -m switch with Flask.</p>
                     </div>                
-            </div>
+            </section>
             
-            <div class="para" id="tut">
-                <div class="title">
+            <section class="para main-section" id="Tutorial">
+                <header class="title">
                     Tutorial
-                </div>
+                </header>
                 <div class="text">
                     <p>This tutorial will walk you through creating a basic blog application called Flaskr. Users will be able to register, log in, create posts, and edit or delete their own posts. You will be able to package and install the application on other computers.</p>
                     <br>
@@ -95,73 +119,132 @@
                     <br>
                     <p>Flask is flexible. It doesn’t require you to use any particular project or code layout. However, when first starting, it’s helpful to use a more structured approach. This means that the tutorial will require a bit of boilerplate up front, but it’s done to avoid many common pitfalls that new developers encounter, and it creates a project that’s easy to expand on. Once you become more comfortable with Flask, you can step out of this structure and take full advantage of Flask’s flexibility.</p>
                     </div>                
-            </div>
+            </section>
 
-            <div class="para" id="templates">
-                <div class="title">
+            <section class="para main-section" id="Templates">
+                <header class="title">
                     Templates
-                </div>
+                </header>
                 <div class="text">
                     <p>Flask leverages Jinja2 as template engine. You are obviously free to use a different template engine, but you still have to install Jinja2 to run Flask itself. This requirement is necessary to enable rich extensions. An extension can depend on Jinja2 being present.</p>
+                    
+                    <ul>
+                        <li>autoescaping is enabled for all templates ending in .html, .htm, .xml as well as .xhtml when using render_template().</li>
+                        <li>autoescaping is enabled for all strings when using render_template_string().</li>
+                        <li>a template has the ability to opt in/out autoescaping with the {% autoescape %} tag.</li>
+                        <li>Flask inserts a couple of global functions and helpers into the Jinja2 context, additionally to the values that are present by default.</li>
+                    </ul>
+
                     <br>
                     <p>This section only gives a very quick introduction into how Jinja2 is integrated into Flask. If you want information on the template engine’s syntax itself, head over to the official Jinja2 Template Documentation for more information.</p> 
                     
                     </div>                
-            </div>
+            </section>
 
-            <div class="para" id="testing">
-                <div class="title">
+            <section class="para main-section" id="Testing_Flask_Application">
+                <header class="title">
                     Testing Flask Applications
-                </div>
+                </header>
                 <div class="text">
                     <p>The origin of this quote is unknown and while it is not entirely correct, it is also not far from the truth. Untested applications make it hard to improve existing code and developers of untested applications tend to become pretty paranoid. If an application has automated tests, you can safely make changes and instantly know if anything breaks.</p>
                     <br>
                     <p>Flask provides a way to test your application by exposing the Werkzeug test Client and handling the context locals for you. You can then use that with your favourite testing solution.</p> 
                     
-                    </div>                
-            </div>
+                    <code>
+import os
+import tempfile
 
-            <div class="para" id="debug">
-                <div class="title">
+import pytest
+
+from flaskr import flaskr
+
+
+@pytest.fixture
+def client():
+    db_fd, flaskr.app.config['DATABASE'] = tempfile.mkstemp()
+    flaskr.app.config['TESTING'] = True
+    client = flaskr.app.test_client()
+
+    with flaskr.app.app_context():
+        flaskr.init_db()
+
+    yield client
+
+    os.close(db_fd)
+    os.unlink(flaskr.app.config['DATABASE'])
+                            </code>
+                    </div>                
+            </section>
+
+            <section class="para main-section" id="Debugging_Application_Error">
+                <header class="title">
                     Debugging Application Errors
-                </div>
+                </header>
                 <div class="text">
                     <p>Applications fail, servers fail. Sooner or later you will see an exception in production. Even if your code is 100% correct, you will still see exceptions from time to time. Why? Because everything else involved will fail. Here are some situations where perfectly fine code can lead to server errors:</p>
+                    
+                    <code>
+@app.errorhandler(werkzeug.exceptions.BadRequest)
+def handle_bad_request(e):
+    return 'bad request!', 400
+
+# or, without the decorator
+app.register_error_handler(400, handle_bad_request)
+                    </code>
+
                     <br>
                     <p>And that’s just a small sample of issues you could be facing. So how do we deal with that sort of problem? By default if your application runs in production mode, Flask will display a very simple page for you and log the exception to the logger.
 
                             But there is more you can do, and we will cover some better setups to deal with errors.</p> 
                     
                     </div>                
-            </div>
+            </section>
 
-            <div class="para" id="log">
-                <div class="title">
+            <section class="para main-section" id="Logging">
+                <header class="title">
                     Logging
-                </div>
+                </header>
                 <div class="text">
                     <p>Flask uses standard Python logging. All Flask-related messages are logged under the 'flask' logger namespace. Flask.logger returns the logger named 'flask.app', and can be used to log messages for your application.</p>
+<code>
+@app.route('/login', methods=['POST'])
+def login():
+user = get_user(request.form['username'])
 
+if user.check_password(request.form['password']):
+    login_user(user)
+    app.logger.info('%s logged in successfully', user.username)
+    return redirect(url_for('index'))
+else:
+    app.logger.info('%s failed to log in', user.username)
+    abort(401)
+</code>
                     </div>                
-            </div>
+            </section>
 
-            <div class="para" id="config">
-                <div class="title">
+            <section class="para main-section" id="Configuration_Handling">
+                <header class="title">
                     Configuration Handling
-                </div>
+                </header>
                 <div class="text">
                     <p>Applications need some kind of configuration. There are different settings you might want to change depending on the application environment like toggling the debug mode, setting the secret key, and other such environment-specific things.</p>
                     <br>
                     <p>The way Flask is designed usually requires the configuration to be available when the application starts up. You can hardcode the configuration in the code, which for many small applications is not actually that bad, but there are better ways.</p> 
                     <br>
                     <p>Independent of how you load your config, there is a config object available which holds the loaded configuration values: The config attribute of the Flask object. This is the place where Flask itself puts certain configuration values and also where extensions can put their configuration values. But this is also where you can have your own configuration.</p>
-                    </div>                
-            </div>
 
-            <div class="para" id="signals">
-                <div class="title">
+                    <ul>
+                        <li>Keep a default configuration in version control. Either populate the config with this default configuration or import it in your own configuration files before overriding values.</li>
+                        <li>Use an environment variable to switch between the configurations. This can be done from outside the Python interpreter and makes development and deployment much easier because you can quickly and easily switch between different configs without having to touch the code at all. If you are working often on different projects you can even create your own script for sourcing that activates a virtualenv and exports the development configuration for you.</li>
+                        <li>Use a tool like fabric in production to push code and configurations separately to the production server(s). For some details about how to do that, head over to the Deploying with Fabric pattern.</li>
+                    </ul>
+                    </div>                
+            </section>
+
+            <section class="para main-section" id="Signals">
+                <header class="title">
                     Signals
-                </div>
+                </header>
                 <div class="text">
                     <p>Starting with Flask 0.6, there is integrated support for signalling in Flask. This support is provided by the excellent blinker library and will gracefully fall back if it is not available.
 
@@ -169,25 +252,40 @@
                     <br>
                     <p>Flask comes with a couple of signals and other extensions might provide more. Also keep in mind that signals are intended to notify subscribers and should not encourage subscribers to modify data. You will notice that there are signals that appear to do the same thing like some of the builtin decorators do (eg: request_started is very similar to before_request()). However, there are differences in how they work. The core before_request() handler, for example, is executed in a specific order and is able to abort the request early by returning a response. In contrast all signal handlers are executed in undefined order and do not modify any data.</p> 
                     
-                    </div>                
-            </div>
+                    <code>
+from flask import template_rendered
+from contextlib import contextmanager
 
-            <div class="para" id="plug">
-                <div class="title">
+@contextmanager
+def captured_templates(app):
+    recorded = []
+    def record(sender, template, context, **extra):
+        recorded.append((template, context))
+    template_rendered.connect(record, app)
+    try:
+        yield recorded
+    finally:
+        template_rendered.disconnect(record, app)
+                    </code>
+                    </div>                
+            </section>
+
+            <section class="para main-section" id="Pluggable_Views">
+                <header class="title">
                     Pluggable Views
-                </div>
+                </header>
                 <div class="text">
                     <p>Flask 0.7 introduces pluggable views inspired by the generic views from Django which are based on classes instead of functions. The main intention is that you can replace parts of the implementations and this way have customizable pluggable views.</p>
                     <br>
                     <p>This is simple and flexible, but if you want to provide this view in a generic fashion that can be adapted to other models and templates as well you might want more flexibility. As you can see what you have to do is to create a subclass of flask.views.View and implement dispatch_request(). Then we have to convert that class into an actual view function by using the as_view() class method. The string you pass to that function is the name of the endpoint that view will then have.</p> 
             
                     </div>                
-            </div>
+            </section>
 
-            <div class="para" id="appcon">
-                <div class="title">
+            <section class="para main-section" id="Application_Context">
+                <header class="title">
                     Application Context
-                </div>
+                </header>
                 <div class="text">
                     <p>The application context keeps track of the application-level data during a request, CLI command, or other activity. Rather than passing the application around to each function, the current_app and g proxies are accessed instead.
 
@@ -197,51 +295,79 @@
 
                             Flask solves this issue with the application context. Rather than referring to an app directly, you use the the current_app proxy, which points to the application handling the current activity.</p> 
                     
+                    <ul>
+                        <li>Flask solves this issue with the application context. Rather than referring to an app directly, you use the the current_app proxy, which points to the application handling the current activity.</li>
+                        <li>Flask automatically pushes an application context when handling a request. View functions, error handlers, and other functions that run during a request will have access to current_app.</li>
+                        <li>Flask will also automatically push an app context when running CLI commands registered with Flask.cli using @app.cli.command().</li>
+                    </ul>
                     </div>                
-            </div>
+            </section>
 
-            <div class="para" id="reqcon">
-                <div class="title">
+            <section class="para main-section" id="Request_Context">
+                <header class="title">
                     Request Context
-                </div>
+                </header>
                 <div class="text">
                     <p>The request context keeps track of the request-level data during a request. Rather than passing the request object to each function that runs during a request, the request and session proxies are accessed instead.
 
                             This is similar to the The Application Context, which keeps track of the application-level data independent of a request. A corresponding application context is pushed when a request context is pushed.</p>
-                    <br>
+                    
+                        <ul>
+                            <li>Before each request, before_request() functions are called. If one of these functions return a value, the other functions are skipped. The return value is treated as the response and the view function is not called.</li>
+                            <li>If the before_request() functions did not return a response, the view function for the matched route is called and returns a response.</li>
+                            <li>The return value of the view is converted into an actual response object and passed to the after_request() functions. Each function returns a modified or new response object.</li>
+                            <li>After the response is returned, the contexts are popped, which calls the teardown_request() and teardown_appcontext() functions. These functions are called even if an unhandled exception was raised at any point above.</li>
+                        </ul>
+
+                            <br>
                     <p>When the Flask application handles a request, it creates a Request object based on the environment it received from the WSGI server. Because a worker (thread, process, or coroutine depending on the server) handles only one request at a time, the request data can be considered global to that worker during that request. Flask uses the term context local for this.
 
                             Flask automatically pushes a request context when handling a request. View functions, error handlers, and other functions that run during a request will have access to the request proxy, which points to the request object for the current request.</p> 
                     
                     </div>                
-            </div>
+            </section>
 
-            <div class="para" id="ext">
-                <div class="title">
+            <section class="para main-section" id="Extensions">
+                <header class="title">
                     Extensions
-                </div>
+                </header>
                 <div class="text">
                     <p>Extensions are extra packages that add functionality to a Flask application. For example, an extension might add support for sending email or connecting to a database. Some extensions add entire new frameworks to help build certain types of applications, like a ReST API.</p>
+                    
+                    <code>
+from flask_foo import Foo
+
+foo = Foo()
+
+app = Flask(__name__)
+app.config.update(
+    FOO_BAR='baz',
+    FOO_SPAM='eggs',
+)
+
+foo.init_app(app)
+                    </code>
+
                     <br>
                     <p>Flask extensions are usually named “Flask-Foo” or “Foo-Flask”. Many extensions are listed in the Extension Registry, which can be updated by extension developers. You can also search PyPI for packages tagged with Framework :: Flask.</p> 
                     </div>                
-            </div>
+            </section>
 
-            <div class="para" id="cli">
-                <div class="title">
+            <section class="para main-section" id="Command_Line_Interface">
+                <header class="title">
                     Command Line Interface
-                </div>
+                </header>
                 <div class="text">
                     <p>Installing Flask installs the flask script, a Click command line interface, in your virtualenv. Executed from the terminal, this script gives access to built-in, extension, and application-defined commands. The --help option will give more information about any commands and options.</p>
                     <br>
                   
                     </div>                
-            </div>
+            </section>
 
-            <div class="para" id="shell">
-                <div class="title">
+            <section class="para main-section" id="Working_with_Shell">
+                <header class="title">
                     Working with Shell
-                </div>
+                </header>
                 <div class="text">
                     <p>One of the reasons everybody loves Python is the interactive shell. It basically allows you to execute Python commands in real time and immediately get results back. Flask itself does not come with an interactive shell, because it does not require any specific setup upfront, just import your application and start playing around.</p>
                     <br>
@@ -251,18 +377,18 @@
                     <br>
                     <p>Generally it’s recommended that you read the The Request Context chapter of the documentation first.</p>
                     </div>                
-            </div>
+            </section>
 
-            <div class="para" id="patterns">
-                <div class="title">
+            <section class="para main-section" id="Design_Patterns">
+                <header class="title">
                     Design Patterns
-                </div>
+                </header>
                 <div class="text">
                     <p>Certain things are common enough that the chances are high you will find them in most web applications. For example quite a lot of applications are using relational databases and user authentication. In that case, chances are they will open a database connection at the beginning of the request and get the information of the currently logged in user. At the end of the request, the database connection is closed again.</p>
                     
                     </div>                
-            </div>
-        </div>
+            </section>
+        </main>
     </div>
 </body>
 </html>

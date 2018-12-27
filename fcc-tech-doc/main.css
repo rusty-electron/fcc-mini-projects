@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=PT+Sans');
 @import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,600');
 
 *{
@@ -57,3 +56,53 @@ a{
     margin: 2rem auto;
 }
 
+code{
+    white-space: pre-wrap;
+    display: block;
+    background-color:#f7f7f7;
+    padding:10px;
+    border-radius:5px;
+    margin-top: 1rem;
+    line-height: 1.1rem;
+    font-family: 'Courier New';
+    font-size: 0.9rem;
+    font-weight: 100;
+}
+
+ul{
+    margin-top: 1.8rem;
+}
+
+ul li{
+    margin-left: 3rem;
+    margin-bottom: .5rem;
+}
+
+@media (max-width: 700px){
+    .container{
+        display: block;
+    }
+
+    .sidebar{
+        position: static;
+        height: 210px;
+        border-bottom: 1px solid black;
+    }
+
+    .main{
+        margin: 0;
+        padding: 10px;
+    }
+
+    .img{
+        margin: 1.5rem;
+    }
+
+    img{
+        width: 200px;
+    }
+
+    code{
+        padding-right: 3rem;
+    }
+}
