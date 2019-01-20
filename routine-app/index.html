@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>6th Semester IE</title>
+
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title-box">
+            <div class="main">6th Semester Routine</div>
+            <div class="sub">AEC Instrumentation</div>
+            <div class="sun">Today is Sunday</div>
+        </div>
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>Day/Time</th>
+                    <th>8:00 - 8:55am</th>
+                    <th>8:55 - 9:50am</th>
+                    <th>10:10 - 11:05am</th>
+                    <th>11:05 - 12:00pm</th>
+                </tr>
+                <tr class="mon">
+                    <td>Monday</td>
+                    <td class="special">PPC - SP</td>
+                    <td>S&S - JM</td>
+                    <td class="special">PE - AB</td>
+                    <td>MP - DH</td>
+                </tr>
+                <tr class="tue">
+                    <td>Tuesday</td>
+                    <td>AE-II - SS</td>
+                    <td>MP - DH</td>
+                    <td class="special">PPC - SP</td>
+                    <td class="special">PE - AB</td>
+                </tr>
+                <tr class="wed">
+                    <td>Wednesday</td>
+                    <td>MP - DH</td>
+                    <td>S&S - JM</td>
+                    <td>OTE - DA</td>
+                    <td class="special">PPC - SP</td>
+                </tr>
+                <tr class="thu">
+                    <td>Thursday</td>
+                    <td>AE-II - SS</td>
+                    <td class="special">PE - AB</td>
+                    <td>MP - DH</td> 
+                    <td>OTE - DA</td>
+                </tr>
+                <tr class="fri">
+                    <td>Friday</td>
+                    <td>OTE - DA</td>
+                    <td class="special">PPC - SP</td>
+                    <td>AE-II - SS</td>
+                    <td>S&S - JM</td>
+                </tr>
+                <tr class="sat">
+                    <td>Saturday</td>
+                    <td class="special">PE - AB</td>
+                    <td>AE-II - SS</td>
+                    <td>OTE - DA</td>
+                    <td>S&S - JM</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="icon">
+            <a href="https://drive.google.com/open?id=1u_kIL9hDpsp-g-iLlr6Y_IkIV5UbxxUk" target="blank">
+                <img src="/icons8-bus-80.png" alt="bus-icon">
+            </a>
+            <p>Bus Schedule</p>
+        </div>
+    </div>
+    <script>
+        let today = new Date().getDay()
+        
+        let goodStuff
+        switch(today) {
+            case 0:
+                goodStuff = document.querySelector('div.sun')
+                goodStuff.style.display = "block"
+                break;
+            case 1:
+                goodStuff = document.querySelector('tr.mon')
+                goodStuff.classList.add("active")
+                break;
+            case 2:
+                goodStuff = document.querySelector('tr.tue')
+                goodStuff.classList.add("active")
+                break;
+            case 3:
+                goodStuff = document.querySelector('tr.wed')
+                goodStuff.classList.add("active")
+                break;
+            case 4:
+                goodStuff = document.querySelector('tr.thu')
+                goodStuff.classList.add("active")
+                break;
+            case 5:
+                goodStuff = document.querySelector('tr.fri')
+                goodStuff.classList.add("active")
+                break;
+            case 6:
+                goodStuff = document.querySelector('tr.sat')
+                goodStuff.classList.add("active")
+                break;
+        }
+    </script>
+</body>
+</html>

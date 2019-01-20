@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Sarabun:400,600');
+.container, body{
+    width: 100%;
+}
+
+.sun{
+    font-family: 'Sarabun', sans-serif;
+    font-weight: 600;
+    font-size: 1.6rem;
+    padding: 10px;
+    color: rgb(240, 33, 33);
+    display: none;
+}
+
+.title-box{
+    margin-top: 2rem;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+.main{
+    font-size: 2.5rem;
+}
+
+.sub{
+    font-size: 1.5rem;
+}
+
+.table-container{
+    font-family: 'Sarabun', sans-serif;
+    overflow-x: auto;
+}
+
+table {
+    cursor: pointer;
+    margin: 2rem auto;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td{
+    padding: 0.7rem 1rem;
+    white-space: nowrap;
+    text-align: center;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.active{
+    background-color: rgb(208, 233, 211) !important;
+}
+
+td:first-child{
+    font-weight: 600;
+}
+
+tr:hover {background-color: #f5f5f5;}
+
+.icon{
+    margin-top: 1rem;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.icon img{
+    width: 2.6rem;
+}
+
+.special{
+    color: rgb(53, 199, 65);
+}
+
+@media (max-width: 800px){
+    .main{
+        font-size: 1.8rem;
+    }
+    
+    .sub{
+        font-size: 1.2rem;
+    }
+}
