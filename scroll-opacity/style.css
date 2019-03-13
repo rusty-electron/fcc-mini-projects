@@ -1,0 +1,48 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #000;
+    font-family: sans-serif;
+}
+
+.header{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: url(bg.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section p:first-child{
+    padding-top:0;
+    margin-top:0;
+}
+
+.header h1{
+    font-size: 3rem;
+    background-color: #fff;
+    padding: 2rem;
+    box-shadow: 0 20px 20px rgba(0,0,0,0.5);
+}
+
+section{
+    position: relative;
+    top: 100vh;
+    padding: 100px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+section h2{
+    font-size: 3rem;
+    color: #fff;
+}
+
+section p{
+    font-size: 1.2rem;
+    color: #fff;
+}

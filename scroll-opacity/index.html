@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scroll Opacity</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="header">
+        <h1>Change Opacity by Scrolling</h1>
+    </div>
+
+    <section>
+        <h2>I think, therefore I am.</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque voluptatem repellat quasi porro mollitia provident temporibus quo atque nam saepe quisquam rerum, magnam accusantium odit asperiores error placeat beatae, impedit cumque non officia et eum? Veniam voluptas, possimus veritatis magnam quas quos dolorum nemo repellendus accusantium nam minus distinctio, obcaecati, non ad voluptates praesentium. Facilis molestiae deleniti excepturi. Voluptatibus voluptatem temporibus consectetur soluta qui? Possimus aperiam delectus ad repudiandae tempora, dignissimos nihil deserunt eius voluptatem maiores sunt mollitia rem ipsum officiis facilis et? Velit veniam officia harum debitis assumenda, quisquam consequatur eligendi aut illum commodi voluptas a, fuga vero distinctio?</p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem vitae nesciunt ab unde consectetur? Sint explicabo accusamus fugit reiciendis eaque reprehenderit obcaecati minus quibusdam esse nemo. Debitis fuga excepturi incidunt ipsam tempora qui, perspiciatis dolore fugiat cum saepe, libero temporibus sit earum veritatis quibusdam impedit. Veritatis minima reprehenderit saepe eos sed esse dignissimos atque ab hic error ratione, excepturi at voluptatum rerum expedita officiis voluptate cum non, voluptatibus aut accusamus sunt? Dignissimos corporis similique quia inventore alias accusantium rerum voluptatibus, vel error cupiditate libero unde sit dolorem doloribus corrupti vero quae magni exercitationem iste itaque commodi. Alias id quidem tenetur, facilis quis possimus culpa dolor deleniti vel obcaecati rem magni aspernatur voluptatibus beatae dolorem quaerat numquam consequuntur labore amet animi? Fugit quidem quaerat aut ducimus vel dolore quisquam illum deserunt, molestias sint nihil eos deleniti sunt adipisci necessitatibus consequatur error quas quia, odio porro officia. Veniam ad nemo quasi qui?</p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo dolorem placeat, dolore expedita obcaecati, illum velit iusto suscipit a dolores nesciunt ex veniam aliquid cupiditate voluptate, pariatur labore exercitationem quam temporibus iure ipsa distinctio adipisci culpa? Maxime officia commodi perferendis excepturi iste omnis iure dicta eligendi! Ratione quo rem beatae, ut culpa assumenda itaque animi, sunt facilis eligendi, quasi natus!</p>
+
+    </section>
+    <script
+        src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(window).scroll(function(){
+                $('.header').css("opacity", 1-$(window).scrollTop()/700)
+            })
+        })
+    </script>
+</body>
+</html>
